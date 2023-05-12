@@ -1,0 +1,86 @@
+{% extends 'doctor-header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <!-- Contact Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Doctor Profile</h5>
+                <h1 class="display-4"></h1>
+                {% if msg %}
+                <b style="color:blue;">{{msg}}</b>
+                {% endif %}
+            </div>
+            <div class="row g-5 mb-5">
+                 
+                <div class="col-lg-4">
+                    
+                </div>
+            </div>
+            <div class="row">
+                
+            </div>
+            <div class="row justify-content-center position-relative" style="margin-top: -150px; z-index: 2;">
+                <div class="col-lg-8">
+                    <div class="bg-white rounded p-5 m-5 mb-0">
+
+                        <form method="post" action="{% url 'doctor-profile' %}"  enctype="multipart/form-data" >
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                
+                                <div class="col-12 ">
+                                    <input type="text" class="form-control bg-light border-0" value="{{user.fname}}" name="fname" style="height: 55px;">
+                                </div>
+                                <div class="col-12 ">
+                                    <input type="text" class="form-control bg-light border-0" value="{{user.lname}}" name="lname" style="height: 55px;">
+                                </div>
+                                <div class="col-12 ">
+                                    <input type="email" class="form-control bg-light border-0" value="{{user.email}}" name="email" style="height: 55px;">
+                                </div>
+                                <div class="col-12 ">
+                                    <input type="text" class="form-control bg-light border-0" value="{{user.mobile}}" name="mobile" style="height: 55px;">
+                                </div>
+                                
+                                <div class="col-12 ">
+                                    <img src="{{user.profile_pic.url}}" height="100px" width="100px">
+                                </div>
+                                <div class="col-12 ">
+                                    <input type="file" class="form-control bg-light border-0" placeholder="Profile_pic" name="profile_pic" style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control bg-light border-0" rows="5" placeholder="Clinic Address" name="clinic_address">{{user.address}}</textarea>
+                                </div>
+                                <div class="col-12 ">
+                                    <input type="text" class="form-control bg-light border-0" value="{{doctor.qualification}}" 
+                                    placeholder="Qualification "name="qualification" style="height: 55px;">
+                                </div>
+                                <div class="col-12 ">
+                                    <input type="text" class="form-control bg-light border-0" value="{{doctor.speciality}}" 
+                                    placeholder="speciality "name="speciality " style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Update Profile</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+ 
+</body>
+
+</html>
+{% endblock %}

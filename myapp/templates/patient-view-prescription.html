@@ -1,0 +1,73 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+</head>
+
+<body>
+    
+
+    <!-- Appointment Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row gx-5">
+                
+                <div class="col-lg-12">
+                    <div class="bg-light text-center rounded p-5">
+                        
+                        <h3 style="color:blue;" >{{msg}}</h3>
+                        <form  >
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                
+                                
+                                <div class="col-12 col-sm-12">
+                                    <input type="text" class="form-control bg-white border-0" value="Patient Name : {{appointment.user.fname}}" style="height: 55px;" readonly>
+                                </div>
+                               
+                                <div class="col-12 col-sm-12">
+                                   <textarea class="form-control bg-white border-0" name="health_issue" readonly>{{appointment.health_issue}}</textarea>
+                                </div>
+                                <br>
+                                <div class="col-12 col-sm-6">
+
+                                    <div class="date" id="date" data-target-input="nearest">
+                                        <label for="birthday">Date:</label>
+                                                <input type="date" id="date" name="date" value="{{appointment.date}}" readonly>
+                                                
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="col-12 col-sm-6">
+                                    <div class="time" id="time" data-target-input="nearest">
+                                        <label for="birthday">time:</label>
+                                                <input type="time" id="time" name="time" value="{{appointment.time}}" readonly>
+                                                
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12">
+                                   <textarea class="form-control bg-white border-0" name="prescription" readonly>{{appointment.prescription}}</textarea>
+                                </div>
+                                <br>
+                                
+                                <br>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Appointment End -->
+
+
+    
+</body>
+
+</html>
+{% endblock %}

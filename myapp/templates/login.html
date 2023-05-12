@@ -1,0 +1,61 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <!-- Contact Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Log in Here</h5>
+                <h1 class="display-4"></h1>
+                {% if msg %}
+                <b style="color:blue;">{{msg}}</b>
+                {% endif %}
+            </div>
+            <div class="row g-5 mb-5">
+                 
+                <div class="col-lg-4">
+                    
+                </div>
+            </div>
+            <div class="row">
+                
+            </div>
+            <div class="row justify-content-center position-relative" style="margin-top: -150px; z-index: 1;">
+                <div class="col-lg-8">
+                    <div class="bg-white rounded p-5 m-5 mb-0">
+                        <form method="post" action="{% url 'login' %}">
+                            {% csrf_token %}
+                            <div class="row g-3">                              
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" class="form-control bg-light border-0" placeholder="Your Email"
+                                    name='email' style="height: 55px;">
+                                </div>                                
+                                <div class="col-12 col-sm-6">
+                                    <input type="password" class="form-control bg-light border-0" placeholder="Password" name="password" style="height: 55px;">
+                                </div>                               
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+ 
+</body>
+
+</html>
+{% endblock %}
